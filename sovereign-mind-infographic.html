@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Mind — The Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #9352A0;
+  --purple-light: #B87DC5;
+  --purple-bg: #F3EBF5;
+  --cyan: #65D3F7;
+  --cyan-dark: #4ABFE0;
+  --cyan-bg: #E8F8FD;
+  --teal: #67C6BB;
+  --teal-bg: #E6F5F3;
+  --coral: #FF6A46;
+  --coral-bg: #FFF0EC;
+  --charcoal: #2E384F;
+  --slate: #384259;
+  --grey: #6B7A90;
+  --light: #F7F8FA;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Public Sans', -apple-system, sans-serif;
+  background: var(--white);
+  color: var(--charcoal);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--slate) 40%, var(--purple) 100%);
+  color: var(--white);
+  padding: 80px 40px 60px;
+  text-align: center;
+}
+.hero-badge {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  border: 1px solid rgba(101,211,247,0.4);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.hero h1 span { color: var(--cyan); }
+.hero p {
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* SECTION */
+.section {
+  padding: 64px 0;
+}
+.section + .section { border-top: 1px solid #ECEEF1; }
+.section-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+.section h2 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+
+/* MISSION CARDS */
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 640px) { .mission-grid { grid-template-columns: 1fr; } }
+.mission-card {
+  padding: 32px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+}
+.mission-card.brain { background: var(--cyan-bg); }
+.mission-card.brain::before { background: var(--cyan); }
+.mission-card.career { background: var(--coral-bg); }
+.mission-card.career::before { background: var(--coral); }
+.mission-card .num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  opacity: 0.15;
+  position: absolute;
+  top: 16px; right: 24px;
+}
+.mission-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.mission-card p {
+  font-size: 14px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* THREE LAYERS */
+.layers {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  position: relative;
+}
+@media (max-width: 640px) { .layers { flex-direction: column; } }
+.layer {
+  flex: 1;
+  padding: 32px 28px;
+  text-align: center;
+  position: relative;
+}
+.layer.thinking {
+  background: var(--purple-bg);
+  border-radius: 16px 0 0 16px;
+}
+.layer.working {
+  background: var(--cyan-bg);
+}
+.layer.production {
+  background: var(--teal-bg);
+  border-radius: 0 16px 16px 0;
+}
+@media (max-width: 640px) {
+  .layer.thinking { border-radius: 16px 16px 0 0; }
+  .layer.production { border-radius: 0 0 16px 16px; }
+}
+.layer-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+.layer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.layer .tool {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.layer.thinking .tool { background: var(--purple); color: white; }
+.layer.working .tool { background: var(--cyan-dark); color: white; }
+.layer.production .tool { background: var(--teal); color: white; }
+.layer p {
+  font-size: 13px;
+  color: var(--grey);
+  line-height: 1.5;
+}
+.layer-arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--grey);
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+@media (max-width: 640px) {
+  .layer-arrow {
+    right: 50%;
+    transform: translateX(50%);
+    top: auto;
+    bottom: -14px;
+  }
+}
+
+/* JOURNEY PHASES */
+.journey {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  position: relative;
+}
+.phase {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  position: relative;
+}
+.phase + .phase { border-top: 1px solid #ECEEF1; }
+.phase-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.phase-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.phase-line {
+  width: 2px;
+  flex: 1;
+  margin-top: 8px;
+}
+.phase.done .phase-dot { background: var(--teal); }
+.phase.done .phase-line { background: var(--teal); opacity: 0.3; }
+.phase.active .phase-dot { background: var(--cyan-dark); box-shadow: 0 0 0 4px rgba(101,211,247,0.25); }
+.phase.active .phase-line { background: var(--cyan); opacity: 0.3; }
+.phase.future .phase-dot { background: var(--slate); opacity: 0.5; }
+.phase.future .phase-line { background: var(--slate); opacity: 0.15; }
+.phase.vision .phase-dot { background: var(--purple); }
+.phase.vision .phase-line { background: var(--purple); opacity: 0.2; }
+.phase-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.phase-content .timeline {
+  font-size: 12px;
+  color: var(--grey);
+  margin-bottom: 8px;
+}
+.phase-content .desc {
+  font-size: 13px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+.phase-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.phase-tag.complete { background: var(--teal-bg); color: var(--teal); }
+.phase-tag.wip { background: var(--cyan-bg); color: var(--cyan-dark); }
+.phase-tag.next { background: var(--coral-bg); color: var(--coral); }
+.phase-tag.planned { background: var(--light); color: var(--grey); }
+
+/* ONTOLOGY */
+.ontology {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ont-stage {
+  padding: 16px 24px;
+  text-align: center;
+  position: relative;
+}
+.ont-stage .label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.ont-stage .sub {
+  font-size: 11px;
+  color: var(--grey);
+}
+.ont-arrow {
+  font-size: 20px;
+  color: var(--purple-light);
+  padding: 0 4px;
+}
+.ont-stage.s0 .label { color: var(--teal); }
+.ont-stage.s1 .label { color: var(--cyan-dark); }
+.ont-stage.s2 .label { color: var(--purple); }
+.ont-stage.s3 .label { color: var(--coral); }
+.ont-stage.s4 .label { color: var(--charcoal); }
+
+/* DOC TYPES */
+.doc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.doc-chip {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+.doc-chip.thinking { background: var(--purple-bg); color: var(--purple); border-color: rgba(147,82,160,0.2); }
+.doc-chip.working { background: var(--cyan-bg); color: var(--cyan-dark); border-color: rgba(101,211,247,0.3); }
+.doc-chip.production { background: var(--teal-bg); color: var(--teal); border-color: rgba(103,198,187,0.3); }
+
+/* FOOTER */
+.footer-bar {
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+}
+.footer-bar strong { color: var(--cyan); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Programme Overview</div>
+  <h1><span>Sovereign</span> Mind</h1>
+  <p>Use AI to enhance my life, to live a better life.</p>
+</div>
+
+<!-- MISSION -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">Mission</div>
+    <h2>Two objectives. One programme.</h2>
+    <div class="mission-grid">
+      <div class="mission-card brain">
+        <div class="num">01</div>
+        <h3>Build a Second Brain</h3>
+        <p>A personal knowledge management system that captures, connects, and retrieves everything that matters. Thinking in Obsidian, structured in Drive, searchable by AI.</p>
+      </div>
+      <div class="mission-card career">
+        <div class="num">02</div>
+        <h3>Build a Fulfilling Career</h3>
+        <p>A post-Siloy path as an AI transformation consultant. Sovereign Ops: helping organisations build, deploy, and govern agentic AI systems.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THREE LAYERS -->
+  <div class="section">
+    <div class="section-label">Architecture</div>
+    <h2>The three layers</h2>
+    <div class="layers">
+      <div class="layer thinking">
+        <div class="layer-icon">&#9679;</div>
+        <h3>Thinking</h3>
+        <span class="tool">Obsidian</span>
+        <p>Raw capture, ideas, seeds. Low friction, high volume. Voice dictation on phone, writing on Mac.</p>
+        <div class="layer-arrow">&rarr;</div>
+      </div>
+      <div class="layer working">
+        <div class="layer-icon">&#9670;</div>
+        <h3>Working</h3>
+        <span class="tool">Drive + Claude</span>
+        <p>Structured, enriched, connected. Where synthesis happens. Mission Control lives here.</p>
+        <div class="layer-arrow">&rarr;</div>
+      </div>
+      <div class="layer production">
+        <div class="layer-icon">&#9733;</div>
+        <h3>Production</h3>
+        <span class="tool">GitHub + Published</span>
+        <p>Published, repeatable, shared. Playbooks, case studies, client-facing work. External-ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCUMENT TYPES -->
+  <div class="section">
+    <div class="section-label">Taxonomy</div>
+    <h2>12 document types</h2>
+    <div class="doc-grid">
+      <span class="doc-chip thinking">Principles</span>
+      <span class="doc-chip thinking">Notes</span>
+      <span class="doc-chip working">Research Papers</span>
+      <span class="doc-chip working">Chronicles</span>
+      <span class="doc-chip working">Briefs</span>
+      <span class="doc-chip working">Indexes</span>
+      <span class="doc-chip working">Dashboards</span>
+      <span class="doc-chip working">Plans</span>
+      <span class="doc-chip working">Memory</span>
+      <span class="doc-chip working">Templates</span>
+      <span class="doc-chip production">Playbooks</span>
+      <span class="doc-chip production">Case Studies</span>
+    </div>
+  </div>
+
+  <!-- JOURNEY -->
+  <div class="section">
+    <div class="section-label">Roadmap</div>
+    <h2>The journey in eight phases</h2>
+    <div class="journey">
+
+      <div class="phase done">
+        <div class="phase-marker">
+          <div class="phase-dot">1</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Foundation Infrastructure <span class="phase-tag complete">Complete</span></h3>
+          <div class="timeline">February 2026</div>
+          <div class="desc">Cloud-first MCP servers on Railway. GitHub version control. Six live integrations (Google, HubSpot, Slack, Apollo, Teamwork). The plumbing.</div>
+        </div>
+      </div>
+
+      <div class="phase done">
+        <div class="phase-marker">
+          <div class="phase-dot">2</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Operational Intelligence <span class="phase-tag complete">95%</span></h3>
+          <div class="timeline">February &ndash; March 2026</div>
+          <div class="desc">Skills and workflows: deal prep, pricing, nurture engine, inbox management, briefing agent. Railway scheduler deployed with three jobs.</div>
+        </div>
+      </div>
+
+      <div class="phase active">
+        <div class="phase-marker">
+          <div class="phase-dot">3</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Mission Control Dashboard <span class="phase-tag wip">In Progress</span></h3>
+          <div class="timeline">March 2026</div>
+          <div class="desc">Single-screen commercial radar. Six modules, 503 records from HubSpot. Web dashboard reading from Google Sheets. v1.1 UI cleanup in backlog.</div>
+        </div>
+      </div>
+
+      <div class="phase active">
+        <div class="phase-marker">
+          <div class="phase-dot">3.5</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Urgent Pull-Forwards <span class="phase-tag wip">Active</span></h3>
+          <div class="timeline">March &ndash; April 2026</div>
+          <div class="desc">Obsidian Vault Sync (Railway headless). Structured metadata system (v5.0 &mdash; YAML frontmatter, file naming, folder restructure). MC Weekly Cron (Sun/Tue/Fri).</div>
+        </div>
+      </div>
+
+      <div class="phase future">
+        <div class="phase-marker">
+          <div class="phase-dot">4</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Automation &amp; Agents <span class="phase-tag next">Next</span></h3>
+          <div class="timeline">April &ndash; May 2026</div>
+          <div class="desc">Autonomous scheduler jobs: morning briefings, event scout, job change alerts, transcription pipeline. Dashboard becomes self-updating.</div>
+        </div>
+      </div>
+
+      <div class="phase future">
+        <div class="phase-marker">
+          <div class="phase-dot">5</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Integration Expansion <span class="phase-tag planned">Planned</span></h3>
+          <div class="timeline">May &ndash; June 2026</div>
+          <div class="desc">LinkedIn MCP, AgentMail persona layer, WhatsApp, HubSpot UI cards. New data sources and communication channels.</div>
+        </div>
+      </div>
+
+      <div class="phase future">
+        <div class="phase-marker">
+          <div class="phase-dot">6</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>Second Brain v2 <span class="phase-tag planned">Planned</span></h3>
+          <div class="timeline">June &ndash; August 2026</div>
+          <div class="desc">Entity Registry, Knowledge Graph, cross-linking. Move from &ldquo;notes in folders&rdquo; to a connected knowledge base with wikilinks and relationships.</div>
+        </div>
+      </div>
+
+      <div class="phase future">
+        <div class="phase-marker">
+          <div class="phase-dot">7</div>
+          <div class="phase-line"></div>
+        </div>
+        <div class="phase-content">
+          <h3>API Migration <span class="phase-tag planned">Planned</span></h3>
+          <div class="timeline">Q3 2026</div>
+          <div class="desc">Skills API migration. Fully stateless agent system running headlessly on Railway. No Claude.ai app needed. Own the prompt, own the context.</div>
+        </div>
+      </div>
+
+      <div class="phase vision">
+        <div class="phase-marker">
+          <div class="phase-dot">8</div>
+        </div>
+        <div class="phase-content">
+          <h3>Sovereign Memory Stack <span class="phase-tag planned">Vision</span></h3>
+          <div class="timeline">Q4 2026+</div>
+          <div class="desc">The endgame. Owned vector DB. Extraction pipeline. Semantic retrieval. LLM-agnostic. Memory portable forever. Every daily note since February is the seed dataset.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ONTOLOGY PATHWAY -->
+  <div class="section">
+    <div class="section-label">Intelligence Evolution</div>
+    <h2>Ontology pathway</h2>
+    <div class="ontology">
+      <div class="ont-stage s0">
+        <div class="label">Structured Metadata</div>
+        <div class="sub">Phase 3.5 &bull; NOW</div>
+      </div>
+      <div class="ont-arrow">&rarr;</div>
+      <div class="ont-stage s1">
+        <div class="label">Entity Registry</div>
+        <div class="sub">Phase 6</div>
+      </div>
+      <div class="ont-arrow">&rarr;</div>
+      <div class="ont-stage s2">
+        <div class="label">Knowledge Graph</div>
+        <div class="sub">Phase 6</div>
+      </div>
+      <div class="ont-arrow">&rarr;</div>
+      <div class="ont-stage s3">
+        <div class="label">Vector Embeddings</div>
+        <div class="sub">Phase 8</div>
+      </div>
+      <div class="ont-arrow">&rarr;</div>
+      <div class="ont-stage s4">
+        <div class="label">Semantic Search</div>
+        <div class="sub">Phase 8 &bull; Endgame</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <strong>Sovereign Mind</strong> v5.0 &mdash; April 2026 &mdash; Adam Lewis
+</div>
+
+</body>
+</html>
